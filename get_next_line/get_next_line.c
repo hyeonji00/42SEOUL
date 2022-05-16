@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:12:18 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/05/16 16:59:09 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/05/16 18:08:35 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ static char	*update_save(char *line)
 	}
 	line[i + 1] = '\0';
 	return (result);
+}
+
+void	test()
+{
+	// 커밋 테스트
 }
 
 char	*get_next_line(int fd)
