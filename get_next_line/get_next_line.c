@@ -6,42 +6,26 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:12:18 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/05/16 18:18:36 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:02:26 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
 static char	*read_line(int fd, char *buf, char *save)
 {
-	char	*new_line;
-	char	*tmp;
 	int		idx;
+	char	*tmp;
 
 	idx = 0;
-	new_line = save;
-	while (new_line == 0 || !ft_strchr(new_line, '\n'))
+	while (save == 0 || ft_strchr(save, '\n') == 0)
 	{
 		idx = read(fd, buf, BUFFER_SIZE);
-		if (idx == -1)
-			return (0);
-		else if (idx == 0)
+		if (idx <= 0)
 			break ;
 		buf[idx] = '\0';
-		if (save == 0)
-			save = ft_strdup("");
 		tmp = save;
-		save = ft_strjoin(tmp, buf);
+		save = ft_strjoin(save, buf);
 		if (save == 0)
 			return (0);
 		free(tmp);
