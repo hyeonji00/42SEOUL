@@ -6,17 +6,31 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:12:18 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/05/20 16:02:26 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:13:33 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*read_line(int fd, char *buf, char *save)
+size_t	ft_strlen(const char *s)
 {
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+static char	*read_line(int fd, char *save)
+{
+	char	*buf;
 	int		idx;
 	char	*tmp;
 
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (buf == 0)
+		return (0);
 	idx = 0;
 	while (save == 0 || ft_strchr(save, '\n') == 0)
 	{
@@ -31,6 +45,8 @@ static char	*read_line(int fd, char *buf, char *save)
 		free(tmp);
 		tmp = 0;
 	}
+	free(buf);
+	buf = 0;
 	return (save);
 }
 
@@ -61,16 +77,10 @@ char	*get_next_line(int fd)
 {
 	static char	*save;
 	char		*line;
-	char		*buf;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (0);
-	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (buf == 0)
-		return (0);
-	line = read_line(fd, buf, save);
-	free(buf);
-	buf = 0;
+	line = read_line(fd, save);
 	if (line == 0)
 		return (0);
 	save = update_save(line);
