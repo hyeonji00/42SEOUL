@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:12:18 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/05/20 16:13:33 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/05/22 22:34:21 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,25 +52,27 @@ static char	*read_line(int fd, char *save)
 
 static char	*update_save(char *line)
 {
+	char	*update;
 	int		i;
-	char	*result;
+	size_t	line_len;
 
 	i = 0;
+	line_len = ft_strlen(line);
 	while (line[i] != '\n' && line[i] != '\0')
 		i++;
 	if (line[i] == '\0')
 		return (0);
-	result = ft_substr(line, i + 1, ft_strlen(line) - i);
-	if (result == 0)
+	update = ft_substr(line, i + 1, line_len - i);
+	if (update == 0)
 		return (0);
-	if (result[0] == '\0')
+	if (update[0] == '\0')
 	{
-		free(result);
-		result = 0;
+		free(update);
+		update = 0;
 		return (0);
 	}
 	line[i + 1] = '\0';
-	return (result);
+	return (update);
 }
 
 char	*get_next_line(int fd)

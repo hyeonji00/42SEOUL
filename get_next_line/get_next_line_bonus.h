@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 22:14:48 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/05/20 16:13:22 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/05/22 22:38:01 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <limits.h>
 
 size_t	ft_strlen(const char *s);
 char	*get_next_line(int fd);
