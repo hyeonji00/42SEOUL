@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 22:14:25 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/05/22 22:52:20 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/05/25 22:02:26 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ char	*get_next_line(int fd)
 	static char	*save[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
 		return (0);
-	line = read_line(fd, *save);
+	line = read_line(fd, save[fd]);
 	if (line == 0)
 		return (0);
-	*save = update_save(line);
+	save[fd] = update_save(line);
 	return (line);
 }
