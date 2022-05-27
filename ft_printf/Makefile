@@ -6,7 +6,7 @@
 #    By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 21:19:50 by hyeonjik          #+#    #+#              #
-#    Updated: 2022/05/28 02:33:25 by hyeonjik         ###   ########.fr        #
+#    Updated: 2022/05/28 03:13:30 by hyeonjik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,8 @@ LIBFT = ./libft
 LIBFT_LIB = libft.a
 
 SRCS = ./ft_printf.c
-
 OBJS  = $(SRCS:.c=.o)
-INCLUCES = .
+INCLUDES = ./ft_printf.h
 
 $(NAME) : $(OBJS)
 	make all -C $(LIBFT)/
@@ -30,7 +29,7 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I$(INCLUCES)
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
 
 clean :
 	rm -f $(OBJS)
