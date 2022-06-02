@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 22:14:48 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/02 15:09:21 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/02 15:32:11 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
-# include <fcntl.h>
 # include <stdlib.h>
 # include <limits.h>
 
