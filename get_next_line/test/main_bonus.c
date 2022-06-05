@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:48:54 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/04 10:41:07 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/05 11:46:37 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(void)
 		}
 		if (line == 0)
 			break ;
+		free(line);
 		line = get_next_line(fd[1]);
 		if (line != 0)
 		{
@@ -48,8 +49,8 @@ int	main(void)
 		}
 		if (line == 0)
 			break ;
+		free(line);
 	}
-	free(line);
 	close(fd[0]);
 	close(fd[1]);
 }

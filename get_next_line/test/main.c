@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 09:48:54 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/04 10:24:39 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/05 11:47:15 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(void)
 		printf("\nERROR in OPEN\n");
 		return (0);
 	}
-	line = 0;
 	while (1)
 	{
+		line = 0;
 		line = get_next_line(fd);
 		if (line != 0)
 		{
@@ -35,7 +35,7 @@ int	main(void)
 		}
 		if (line == 0)
 			break ;
+		free(line);
 	}
-	free(line);
 	close(fd);
 }
