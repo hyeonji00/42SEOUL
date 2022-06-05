@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 15:12:18 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/04 10:06:24 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/05 13:56:37 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	*update_save(char *line)
 	char	*update;
 	int		i;
 	int		start;
-	int		end;
+	int		len;
 
 	i = 0;
 	while (line[i] != '\n' && line[i] != '\0')
@@ -63,8 +63,8 @@ static char	*update_save(char *line)
 	if (line[i] == '\0')
 		return (0);
 	start = i + 1;
-	end = ft_strlen(line) - i;
-	update = ft_substr(line, start, end);
+	len = ft_strlen(line) - i;
+	update = ft_substr(line, start, len);
 	if (update == 0)
 		return (0);
 	if (update[0] == '\0')
