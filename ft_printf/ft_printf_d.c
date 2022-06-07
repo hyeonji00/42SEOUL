@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 21:19:42 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/07 17:59:23 by hyeonjik         ###   ########.fr       */
+/*   Created: 2022/06/07 17:57:03 by hyeonjik          #+#    #+#             */
+/*   Updated: 2022/06/07 18:46:19 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "./libft/libft.h"
+int	ft_printf_d(va_list *ap)
+{
 
-#endif
+}

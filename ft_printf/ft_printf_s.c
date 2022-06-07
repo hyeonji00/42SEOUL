@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 21:19:42 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/07 17:59:23 by hyeonjik         ###   ########.fr       */
+/*   Created: 2022/06/07 17:53:34 by hyeonjik          #+#    #+#             */
+/*   Updated: 2022/06/07 17:56:20 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include "./libft/libft.h"
+int	ft_printf_s(va_list *ap)
+{
+	char	*tmp;
+	int		num;
 
-#endif
+	num = 0;
+	tmp = (char *)va_arg(*ap, char *);
+	if (tmp == 0)
+		tmp = "(null)";
+	num = write(1, tmp, ft_strlen(tmp));
+	return (num);
+}
