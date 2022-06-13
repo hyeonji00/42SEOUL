@@ -6,13 +6,13 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:19:47 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/13 18:46:14 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/13 19:30:56 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_type(const char c, va_list ap)
+static int	ft_printf_type(const char c, va_list ap)
 {
 	int	print_len;
 

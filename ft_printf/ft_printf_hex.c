@@ -6,13 +6,13 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 17:54:08 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/13 18:38:01 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/13 19:31:28 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_put_hex(unsigned int tmp, const char c, int *len)
+static void	ft_put_hex(unsigned int tmp, const char c, int *len)
 {
 	char	ch;
 
