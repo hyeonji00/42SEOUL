@@ -1,26 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_s.c                                      :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 17:53:34 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/13 17:38:08 by hyeonjik         ###   ########.fr       */
+/*   Created: 2022/06/13 18:38:39 by hyeonjik          #+#    #+#             */
+/*   Updated: 2022/06/13 18:45:12 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_s(va_list ap)
+void	ft_put_p(size_t tmp, int *len)
 {
-	char	*tmp;
+	char	ch;
+
+	ch = '0';
+	if (tmp < 16)
+	{
+		if (tmp < 10)
+			ch = tmp + '0';
+		else
+			ch = tmp - 10 + 'a';
+		len += write(1, &ch, 1);
+	}
+	else
+	{
+		ft_put_hex(tmp / 16, len);
+		ft_put_hex(tmp % 16, len);
+	}
+}
+
+int	ft_printf_p(va_list ap)
+{
+	size_t	tmp;
 	int		print_len;
 
 	print_len = 0;
-	tmp = (char *)va_arg(ap, char *);
+	tmp = (size_t)va_arg(ap, size_t);
+	print_len += write(1, "0x", 2);
 	if (tmp == 0)
-		tmp = "(null)";
-	print_len = write(1, tmp, ft_strlen(tmp));
+		return (write(1, "0", 1));
+	ft_put_p(tmp, &print_len);
 	return (print_len);
 }

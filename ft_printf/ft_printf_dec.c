@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_s.c                                      :+:      :+:    :+:   */
+/*   ft_printf_dec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 17:53:34 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/13 17:38:08 by hyeonjik         ###   ########.fr       */
+/*   Created: 2022/06/07 17:57:03 by hyeonjik          #+#    #+#             */
+/*   Updated: 2022/06/13 18:01:35 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_s(va_list ap)
+int	ft_printf_dec(va_list ap)
 {
-	char	*tmp;
+	int		tmp;
+	char	*str;
 	int		print_len;
 
 	print_len = 0;
-	tmp = (char *)va_arg(ap, char *);
-	if (tmp == 0)
-		tmp = "(null)";
-	print_len = write(1, tmp, ft_strlen(tmp));
+	tmp = (int)va_arg(ap, int);
+	str = ft_itoa(tmp);
+	print_len = write(1, str, ft_strlen(str));
+	free(str);
 	return (print_len);
 }
