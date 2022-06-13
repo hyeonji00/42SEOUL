@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:19:42 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/13 19:25:46 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/13 19:36:15 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 
 int	ft_printf(const char *str, ...);
 int	ft_printf_c(va_list ap);
