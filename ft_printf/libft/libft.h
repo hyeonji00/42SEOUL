@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:09:47 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/05/07 13:36:37 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/13 19:26:22 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+char	*ft_if_zero(void);
+int		ft_numlen(long long nb);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));

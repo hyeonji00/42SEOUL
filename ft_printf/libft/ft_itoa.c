@@ -6,13 +6,13 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 17:20:20 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/05/07 13:31:53 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/13 19:25:58 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_if_zero(void)
+char	*ft_if_zero(void)
 {
 	char	*str;
 
@@ -24,7 +24,7 @@ static char	*ft_if_zero(void)
 	return (str);
 }
 
-static int	ft_numlen(long long nb)
+int	ft_numlen(long long nb)
 {
 	int	len;
 
