@@ -6,13 +6,28 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 17:54:08 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/13 19:31:28 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/14 17:47:10 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_put_hex(unsigned int tmp, const char c, int *len)
+static int	ft_hex_len(unsigned int tmp)
+{
+	int	len;
+
+	len = 0;
+	if (tmp == 0)
+		return (1);
+	while (tmp != 0)
+	{
+		len++;
+		tmp /= 16;
+	}
+	return (len);
+}
+
+static void	ft_put_hex(unsigned int tmp, const char c)
 {
 	char	ch;
 
@@ -27,22 +42,23 @@ static void	ft_put_hex(unsigned int tmp, const char c, int *len)
 			if (c == 'X')
 				ch = ft_toupper(ch);
 		}
-		len += write(1, &ch, 1);
+		write(1, &ch, 1);
 	}
 	else
 	{
-		ft_put_hex(tmp / 16, c, len);
-		ft_put_hex(tmp % 16, c, len);
+		ft_put_hex(tmp / 16, c);
+		ft_put_hex(tmp % 16, c);
 	}
 }
 
-int	ft_printf_hex(va_list ap, const char c)
+int	ft_printf_hex(va_list **ap, const char c)
 {
 	unsigned int	tmp;
 	int				print_len;
 
 	print_len = 0;
-	tmp = (unsigned int)va_arg(ap, unsigned int);
-	ft_put_hex(tmp, c, &print_len);
+	tmp = (unsigned int)va_arg(**ap, unsigned int);
+	ft_put_hex(tmp, c);
+	print_len = ft_hex_len(tmp);
 	return (print_len);
 }

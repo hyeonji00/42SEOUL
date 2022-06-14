@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 17:15:19 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/14 00:54:06 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/14 17:34:55 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ static char	*ft_uitoa(unsigned int n)
 	return (str);
 }
 
-int	ft_printf_u(va_list ap)
+int	ft_printf_u(va_list **ap)
 {
 	unsigned int	tmp;
 	char			*str;
 	int				print_len;
 
 	print_len = 0;
-	tmp = (unsigned int)va_arg(ap, unsigned int);
+	tmp = (unsigned int)va_arg(**ap, unsigned int);
 	str = ft_uitoa(tmp);
 	print_len = write(1, str, ft_strlen(str));
 	free(str);
