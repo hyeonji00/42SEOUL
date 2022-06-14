@@ -6,13 +6,13 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:38:39 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/14 17:45:08 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/14 18:44:32 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_p_len(size_t tmp)
+static int	ft_p_len(unsigned long long tmp)
 {
 	int	len;
 
@@ -25,7 +25,7 @@ static int	ft_p_len(size_t tmp)
 	return (len);
 }
 
-static void	ft_put_p(size_t tmp)
+static void	ft_put_p(unsigned long long tmp)
 {
 	char	ch;
 
@@ -47,11 +47,11 @@ static void	ft_put_p(size_t tmp)
 
 int	ft_printf_p(va_list **ap)
 {
-	size_t	tmp;
-	int		print_len;
+	unsigned long long	tmp;
+	int					print_len;
 
 	print_len = 0;
-	tmp = (size_t)va_arg(**ap, size_t);
+	tmp = (unsigned long long)va_arg(**ap, void *);
 	print_len += write(1, "0x", 2);
 	if (tmp == 0)
 	{
