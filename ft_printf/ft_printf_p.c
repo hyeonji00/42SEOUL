@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 18:38:39 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/14 18:44:32 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/06/15 15:55:01 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_printf_p(va_list **ap)
 	int					print_len;
 
 	print_len = 0;
-	tmp = (unsigned long long)va_arg(**ap, void *);
+	tmp = (unsigned long long)va_arg(**ap, unsigned long long);
 	print_len += write(1, "0x", 2);
 	if (tmp == 0)
 	{

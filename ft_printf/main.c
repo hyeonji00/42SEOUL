@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 00:46:46 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/14 01:09:30 by hyeonjik         ###   ########.fr       */
+/*   Created: 2022/06/14 17:56:30 by hyeonjik          #+#    #+#             */
+/*   Updated: 2022/06/15 16:14:06 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	main(void)
 {
-	ft_printf("%d", 10);
+	printf("\nprint_len : %d\n", ft_printf(" %s %c %X %d", "string", '\0', 10, 33));
 }
