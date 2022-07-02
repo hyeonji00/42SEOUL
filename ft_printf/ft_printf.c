@@ -6,7 +6,7 @@
 /*   By: hyeonjik <hyeonjik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:19:47 by hyeonjik          #+#    #+#             */
-/*   Updated: 2022/06/14 17:34:03 by hyeonjik         ###   ########.fr       */
+/*   Updated: 2022/07/03 02:32:51 by hyeonjik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			print_len += ft_printf_type(str[i + 1], &ap);
 			i++;
+			print_len += ft_printf_type(str[i], &ap);
 		}
 		else
 			print_len += write(1, &str[i], 1);
